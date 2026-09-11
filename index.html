@@ -454,42 +454,63 @@
         }
       }
 
-      /* ---------- Sermons Archive ---------- */
-      .sermons-grid {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 28px;
+      /* ---------- Sermons Archive (collapsible) ---------- */
+      .sermons-list {
+        border-top: 1px solid var(--rule);
       }
-      .sermon-card {
-        border: 1px solid var(--rule);
-        padding: 26px;
-        background: var(--bg-alt);
+      .sermon-item {
+        border-bottom: 1px solid var(--rule);
       }
-      .sermon-card .date {
+      .sermon-item summary {
+        display: flex;
+        align-items: center;
+        gap: 24px;
+        padding: 22px 0;
+        cursor: pointer;
+        list-style: none;
+      }
+      .sermon-item summary::-webkit-details-marker {
+        display: none;
+      }
+      .sermon-item summary .date {
         color: var(--gold);
-        font-size: 12px;
-        letter-spacing: 0.05em;
+        font-size: 13px;
+        letter-spacing: 0.04em;
+        min-width: 80px;
       }
-      .sermon-card h3 {
-        font-size: 19px;
-        margin: 12px 0 10px;
+      .sermon-item summary .title {
+        font-family: "Fraunces", serif;
+        font-size: 18px;
+        color: var(--cream);
+        flex: 1;
       }
-      .sermon-card p {
+      .sermon-item summary .toggle {
+        font-size: 20px;
         color: var(--muted);
-        font-size: 14px;
-        margin-bottom: 18px;
+        transition: transform 0.2s;
       }
-      .sermon-card audio {
+      .sermon-item[open] summary .toggle {
+        transform: rotate(45deg);
+      }
+      .sermon-body {
+        padding: 0 0 26px;
+        color: var(--muted);
+        font-size: 15px;
+      }
+      .sermon-body p {
+        margin-bottom: 14px;
+      }
+      .sermon-body audio {
         width: 100%;
-      }
-      @media (max-width: 900px) {
-        .sermons-grid {
-          grid-template-columns: 1fr 1fr;
-        }
+        margin-top: 4px;
       }
       @media (max-width: 600px) {
-        .sermons-grid {
-          grid-template-columns: 1fr;
+        .sermon-item summary {
+          flex-wrap: wrap;
+          gap: 6px;
+        }
+        .sermon-item summary .date {
+          min-width: auto;
         }
       }
 
@@ -632,10 +653,7 @@
             <li><a href="#sermons">Sermons</a></li>
             <li><a href="#gallery">Gallery</a></li>
             <li>
-              <a
-                href="https://tally.so/r/7RrOlZ"
-                target="_blank"
-                rel="noopener"
+              <a href="https://tally.so/r/7RrOlZ" target="_blank" rel="noopener"
                 >Register</a
               >
             </li>
@@ -812,33 +830,143 @@
         <div class="section-head">
           <span class="tag">Listen</span>
           <h2>Sermons Archive</h2>
+          <p>Click any message to expand it and download the audio.</p>
         </div>
 
-        <div class="sermons-grid">
-          <div class="sermon-card">
-            <span class="date">Sept 2026</span>
-            <h3>How To Walk In Prevailing Vision</h3>
-            <p>On sustaining a vision through resistance.</p>
-            <audio controls>
-              <source src="sermons/How-To-Walk-In-Prevailing-Vision.mp3" type="audio/mpeg" />
-            </audio>
-          </div>
-          <div class="sermon-card">
-            <span class="date">Sept 2026</span>
-            <h3>How To Find Purpose Early in Life</h3>
-            <p>A word for those still searching for their center.</p>
-            <audio controls>
-              <source src="sermons/How-To-Find-Purpose-Early-in-Life.mp3" type="audio/mpeg" />
-            </audio>
-          </div>
-          <div class="sermon-card">
-            <span class="date">Sept 2026</span>
-            <h3>What Is the Purpose of Life, Really?</h3>
-            <p>Returning to the first question, honestly.</p>
-            <audio controls>
-              <source src="sermons/What-Is-the-Purpose-of-Life-Really.mp3" type="audio/mpeg" />
-            </audio>
-          </div>
+        <div class="sermons-list">
+          <details class="sermon-item">
+            <summary>
+              <span class="date">Sept 2026</span>
+              <span class="title">How To Walk In Prevailing Vision</span>
+              <span class="toggle">+</span>
+            </summary>
+            <div class="sermon-body">
+              <p>On sustaining a vision through resistance.</p>
+              <a
+                href="https://drive.google.com/file/d/1lpR0osZLfHJRNT_WZADt5CCZh304ZliL/view?usp=sharing"
+                target="_blank"
+                class="text-link"
+                >Download / Listen →</a
+              >
+            </div>
+          </details>
+
+          <details class="sermon-item">
+            <summary>
+              <span class="date">Sept 2026</span>
+              <span class="title">How To Find Purpose Early in Life</span>
+              <span class="toggle">+</span>
+            </summary>
+            <div class="sermon-body">
+              <p>
+                Living a life of purpose is not a passive waiting game; it
+                demands relentless initiative and an aggressive bias for
+                action..
+              </p>
+              <a
+                href="https://drive.google.com/file/d/14ACevp4FYaR59uAU8-tw3j3s79qbgq3T/view?usp=sharing"
+                target="_blank"
+                class="text-link"
+                >Download / Listen →</a
+              >
+            </div>
+          </details>
+
+          <details class="sermon-item">
+            <summary>
+              <span class="date">Sept 2026</span>
+              <span class="title">What Is the Purpose of Life, Really?</span>
+              <span class="toggle">+</span>
+            </summary>
+            <div class="sermon-body">
+              <p>
+                A truly fulfilled life is never found in self-preservation; it
+                is unlocked at the altar of serving God and pouring out to
+                humanity.
+              </p>
+              <a
+                href="https://drive.google.com/file/d/1oJl3YEM12zRq9EgDTedI2ZFYPOszgG3x/view?usp=sharing"
+                target="_blank"
+                class="text-link"
+                >Download / Listen →</a
+              >
+            </div>
+          </details>
+
+          <!-- Copy this block for each additional message — aim for 10-15 total -->
+          <details class="sermon-item">
+            <summary>
+              <span class="date">2026</span>
+              <span class="title">Signs of a Prophet</span>
+              <span class="toggle">+</span>
+            </summary>
+            <div class="sermon-body">
+              <p>
+                The impact of a divine vision is governed not by the size of the
+                dream, but by the quality of its execution and the resources
+                backing it.
+              </p>
+              <a
+                href="https://drive.google.com/file/d/1ssPva1CaNwjseuT3l0tq8PdAQCU4h1QD/view?usp=drive_link"
+                target="_blank"
+                class="text-link"
+                >Download / Listen →</a
+              >
+            </div>
+          </details>
+
+          <!-- Copy this block for each additional message — aim for 10-15 total -->
+          <details class="sermon-item">
+            <summary>
+              <span class="date">2026</span>
+              <span class="title">The Making of a National Prophet</span>
+              <span class="toggle">+</span>
+            </summary>
+            <div class="sermon-body">
+              <p>Short one-line description.</p>
+              <a
+                href="https://drive.google.com/file/d/1BvU-5Rz07HgCVWlybAVMPeNw2cCQGXgx/view?usp=sharing"
+                target="_blank"
+                class="text-link"
+                >Download / Listen →</a
+              >
+            </div>
+          </details>
+
+          <details class="sermon-item">
+            <summary>
+              <span class="date">2026</span>
+              <span class="title">The Walk and Work of Vision</span>
+              <span class="toggle">+</span>
+            </summary>
+            <div class="sermon-body">
+              <p>
+                Ideas come by divine inspiration, but they are established and
+                built only through sound understanding and practical execution.
+              </p>
+              <a
+                href="https://drive.google.com/file/d/1xmeneVvTqWRrG93Bk9Rg175P82fYwzTx/view?usp=sharing"
+                target="_blank"
+                class="text-link"
+                >Download / Listen →</a
+              >
+            </div>
+          </details>
+
+          <!-- Copy this block for each additional message — aim for 10-15 total -->
+          <details class="sermon-item">
+            <summary>
+              <span class="date">Month Year</span>
+              <span class="title">Message Title</span>
+              <span class="toggle">+</span>
+            </summary>
+            <div class="sermon-body">
+              <p>Short one-line description.</p>
+              <a href="YOUR-GOOGLE-DRIVE-LINK" target="_blank" class="text-link"
+                >Download / Listen →</a
+              >
+            </div>
+          </details>
         </div>
       </div>
     </section>
@@ -912,11 +1040,13 @@
           <div class="leader-card">
             <img src="images/my-picture.jpg" alt="Inengiye Emmanuel" />
             <h3>Inengiye Emmanuel</h3>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ================= FOOTER ================= -->
+
     <footer>
       <div class="wrap">
         <div class="footer-banner">
@@ -949,8 +1079,17 @@
           <div>
             <h4>Connect</h4>
             <ul>
-              <li><a href="https://chat.whatsapp.com/BOFJVcNevkf6Vkm9ER4OGB?mode=ac_t">Join WhatsApp Group</a></li>
-              <li><a href="https://t.me/engineering_factor">Join Telegram Channel</a></li>
+              <li>
+                <a
+                  href="https://chat.whatsapp.com/BOFJVcNevkf6Vkm9ER4OGB?mode=ac_t"
+                  >Join WhatsApp Group</a
+                >
+              </li>
+              <li>
+                <a href="https://t.me/engineering_factor"
+                  >Join Telegram Channel</a
+                >
+              </li>
             </ul>
           </div>
           <div>
